@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import clsx from 'clsx';
 
 const Hero = () => {
@@ -66,18 +66,23 @@ const Hero = () => {
   const socialLinks = [
     {
       icon: <FaGithub className="w-6 h-6" />,
-      href: 'https://github.com/votre-username',
+      href: 'https://github.com/byPreaZy',
       label: 'GitHub',
     },
     {
       icon: <FaLinkedin className="w-6 h-6" />,
-      href: 'https://linkedin.com/in/votre-username',
+      href: 'https://www.linkedin.com/in/kévin-clere-209b97206/',
       label: 'LinkedIn',
     },
     {
       icon: <FaTwitter className="w-6 h-6" />,
-      href: 'https://twitter.com/votre-username',
+      href: 'https://twitter.com/PreaZyFX',
       label: 'Twitter',
+    },
+    {
+      icon: <FaFacebook className="w-6 h-6" />,
+      href: 'https://www.facebook.com/Clerelydesign',
+      label: 'Facebook',
     },
   ];
 
