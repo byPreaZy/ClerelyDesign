@@ -1,27 +1,9 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 import clsx from 'clsx';
-
-const projects = [
-  {
-    title: 'E-commerce Platform',
-    description: 'Une plateforme e-commerce complète avec panier, paiement et gestion des commandes.',
-    image: '/path-to-project1-image.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubUrl: 'https://github.com/username/project1',
-    liveUrl: 'https://project1.com',
-  },
-  {
-    title: 'Task Management App',
-    description: 'Application de gestion de tâches avec authentification et partage d\'équipe.',
-    image: '/path-to-project2-image.jpg',
-    technologies: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/username/project2',
-    liveUrl: 'https://project2.com',
-  },
-  // Ajoutez d'autres projets ici
-];
+import { projects, categories, filters } from '../../components/data/projects';
+import UnderConstructionWithAccess from '../ui/UnderConstructionWithAccess';
 
 const ProjectCard = ({ project }) => {
   return (
@@ -55,7 +37,7 @@ const ProjectCard = ({ project }) => {
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech) => (
+          {project.tags.map((tech) => (
             <span
               key={tech}
               className={clsx(
@@ -79,6 +61,7 @@ const ProjectCard = ({ project }) => {
               'flex items-center gap-2 text-gray-600 dark:text-gray-300',
               'hover:text-primary dark:hover:text-primary transition-colors duration-300'
             )}
+            aria-label={`Voir le code source de ${project.title} sur GitHub`}
           >
             <FaGithub className="w-5 h-5" />
             <span>Code</span>
@@ -91,6 +74,7 @@ const ProjectCard = ({ project }) => {
               'flex items-center gap-2 text-gray-600 dark:text-gray-300',
               'hover:text-primary dark:hover:text-primary transition-colors duration-300'
             )}
+            aria-label={`Voir la démo en ligne de ${project.title}`}
           >
             <FaExternalLinkAlt className="w-5 h-5" />
             <span>Demo</span>
@@ -102,7 +86,37 @@ const ProjectCard = ({ project }) => {
 };
 
 const Projects = () => {
-  return (
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedFilter, setSelectedFilter] = useState('recent');
+
+  const filteredProjects = useMemo(() => {
+    let result = [...projects];
+
+    // Filtrer par catégorie
+    if (selectedCategory !== 'all') {
+      result = result.filter(project => project.category === selectedCategory);
+    }
+
+    // Appliquer le filtre
+    switch (selectedFilter) {
+      case 'recent':
+        result.sort((a, b) => new Date(b.date) - new Date(a.date));
+        break;
+      case 'featured':
+        result = result.filter(project => project.featured);
+        break;
+      case 'popular':
+        // Ici, vous pourriez ajouter une logique basée sur des vues ou des likes
+        result.sort((a, b) => b.featured - a.featured);
+        break;
+      default:
+        break;
+    }
+
+    return result;
+  }, [selectedCategory, selectedFilter]);
+
+  const ProjectsContent = () => (
     <section className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -119,8 +133,47 @@ const Projects = () => {
           </p>
         </motion.div>
 
+        {/* Filtres et catégories */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={clsx(
+                  'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300',
+                  selectedCategory === category.id
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                )}
+                aria-label={category.ariaLabel}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-2">
+            {filters.map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setSelectedFilter(filter.id)}
+                className={clsx(
+                  'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300',
+                  selectedFilter === filter.id
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                )}
+                aria-label={filter.ariaLabel}
+              >
+                {filter.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Grille de projets */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
@@ -133,6 +186,19 @@ const Projects = () => {
         </div>
       </div>
     </section>
+  );
+
+  return (
+    <UnderConstructionWithAccess
+      title="Projets en cours de développement"
+      description="Nous sommes en train de finaliser la présentation de nos projets. Cette section sera bientôt disponible avec une sélection de nos réalisations en développement web et design graphique."
+      icon={FaCode}
+      password="Moi11/11/94!Teddy"
+      accessTitle="Accès aux projets en développement"
+      accessDescription="Entrez le mot de passe pour accéder à la version en cours de développement des projets."
+    >
+      <ProjectsContent />
+    </UnderConstructionWithAccess>
   );
 };
 

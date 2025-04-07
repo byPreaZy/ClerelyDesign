@@ -1,0 +1,171 @@
+/* Styles pour le formulaire Formspree */
+/* Respect des normes d'accessibilité et adaptation au thème clair/sombre */
+
+/* Reset des styles par défaut */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm fieldset,
+#fs-frm optgroup,
+#fs-frm label,
+#fs-frm legend {
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Styles des labels */
+#fs-frm label,
+#fs-frm legend {
+  font-size: 0.825rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* Styles des champs de formulaire */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea {
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--input-bg, #ffffff);
+  color: var(--input-text, #1a202c);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Focus styles pour l'accessibilité */
+#fs-frm input:focus,
+#fs-frm select:focus,
+#fs-frm textarea:focus {
+  outline: none;
+  border-color: var(--focus-border, #2EC4B6);
+  box-shadow: 0 0 0 3px rgba(46, 196, 182, 0.25);
+}
+
+/* Styles pour les champs désactivés */
+#fs-frm input:disabled,
+#fs-frm select:disabled,
+#fs-frm textarea:disabled {
+  background-color: var(--disabled-bg, #f7fafc);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Styles pour les champs requis */
+#fs-frm input:required,
+#fs-frm select:required,
+#fs-frm textarea:required {
+  border-left: 3px solid var(--required-border, #e53e3e);
+}
+
+/* Styles pour les messages d'erreur */
+#fs-frm .fs-error {
+  color: var(--error-text, #e53e3e);
+  font-size: 0.875rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+/* Styles pour le bouton d'envoi */
+#fs-frm input[type="submit"] {
+  background-color: var(--submit-bg, #2EC4B6);
+  color: var(--submit-text, #ffffff);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: auto;
+  margin-top: 1rem;
+}
+
+#fs-frm input[type="submit"]:hover {
+  background-color: var(--submit-hover-bg, #28a99c);
+}
+
+#fs-frm input[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 196, 182, 0.5);
+}
+
+/* Styles pour le thème sombre */
+@media (prefers-color-scheme: dark) {
+  #fs-frm input,
+  #fs-frm select,
+  #fs-frm textarea {
+    --border-color: #4a5568;
+    --input-bg: #2d3748;
+    --input-text: #f7fafc;
+    --focus-border: #2EC4B6;
+    --disabled-bg: #1a202c;
+    --required-border: #fc8181;
+    --error-text: #fc8181;
+    --submit-bg: #2EC4B6;
+    --submit-text: #ffffff;
+    --submit-hover-bg: #28a99c;
+  }
+}
+
+/* Styles pour les écrans mobiles */
+@media (max-width: 640px) {
+  #fs-frm input,
+  #fs-frm select,
+  #fs-frm textarea {
+    font-size: 16px; /* Évite le zoom automatique sur iOS */
+  }
+}
+
+/* Styles pour les lecteurs d'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Styles pour les messages de succès et d'erreur */
+#fs-frm .fs-success,
+#fs-frm .fs-error-message {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1.5rem;
+}
+
+#fs-frm .fs-success {
+  background-color: var(--success-bg, #c6f6d5);
+  color: var(--success-text, #2f855a);
+}
+
+#fs-frm .fs-error-message {
+  background-color: var(--error-bg, #fed7d7);
+  color: var(--error-text, #c53030);
+}
+
+/* Styles pour le thème sombre - messages */
+@media (prefers-color-scheme: dark) {
+  #fs-frm .fs-success {
+    --success-bg: #22543d;
+    --success-text: #9ae6b4;
+  }
+  
+  #fs-frm .fs-error-message {
+    --error-bg: #822727;
+    --error-text: #feb2b2;
+  }
+} 

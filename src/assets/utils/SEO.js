@@ -41,11 +41,26 @@ const SEO = ({
       <meta name="theme-color" content="#6366f1" />
       <link rel="canonical" href={url || defaultUrl} />
       
+      {/* Accessibilité */}
+      <meta name="robots" content="index, follow" />
+      <meta name="language" content="fr" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="author" content="Clere'ly Design" />
+      
+      {/* RGPD et Confidentialité */}
+      <meta name="privacy-policy" content="/politique-confidentialite" />
+      <meta name="cookie-policy" content="/politique-confidentialite#cookies" />
+      <meta name="data-protection" content="RGPD compliant" />
+      
       {/* Favicon */}
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />
+      
+      {/* Préchargement des ressources critiques */}
+      <link rel="preload" href="/fonts/main-font.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/css/critical.css" as="style" />
     </Helmet>
   );
 };

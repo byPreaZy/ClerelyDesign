@@ -2,78 +2,30 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaPalette, FaMobile, FaServer } from 'react-icons/fa';
 import 'animate.css';
+import { skills, experiences, education, learningGoals } from '../components/data/about';
+import { getLevelColor } from '../components/data/about/skills';
 
 const About = () => {
-  const experiences = [
-    {
-      id: 1,
-      title: "Technicien de Laboratoire",
-      company: "Lycée H.Vincenot",
-      period: "2021 - 2023",
-      description: "Préparation des travaux pratiques en Physique et Chimie, gestion de l'emploi du temps professoral."
-    },
-    {
-      id: 2,
-      title: "Agent de Pesée",
-      company: "Terre Comtoise",
-      period: "2021",
-      description: "Pesée et mise en boîte du grain après récolte, gestion des stocks, service d'entretien des silos."
-    },
-    {
-      id: 3,
-      title: "Moniteur de Kayak",
-      company: "Canoë-Kayak Club Louhans",
-      period: "2017 - 2018",
-      description: "Gestion administrative et publicitaire du Club, encadrement d'un groupe de jeunes."
-    }
-  ];
-
-  const education = [
-    {
-      id: 1,
-      degree: "Équivalence M2 Infographie et 3D",
-      school: "MJM Graphic Design",
-      period: "2014 - 2017",
-      type: "Distanciel"
-    },
-    {
-      id: 2,
-      degree: "BAC Sciences Techniques de Laboratoire",
-      school: "Lycée Nicephore Niepce",
-      period: "2011 - 2013",
-      type: "Présentiel"
-    }
-  ];
-
-  const skills = [
-    { name: 'React', level: 90 },
-    { name: 'JavaScript', level: 85 },
-    { name: 'TypeScript', level: 80 },
-    { name: 'Node.js', level: 75 },
-    { name: 'Tailwind CSS', level: 85 },
-    { name: 'UI/UX Design', level: 80 },
-  ];
-
   const services = [
     {
       icon: <FaCode className="w-8 h-8" />,
-      title: 'Développement Frontend',
-      description: 'Création d\'interfaces modernes et réactives avec les dernières technologies web.'
+      title: 'Développement Web Moderne',
+      description: 'Création d\'applications web performantes et innovantes avec React, TypeScript et les dernières technologies frontend.'
     },
     {
       icon: <FaPalette className="w-8 h-8" />,
-      title: 'Design UI/UX',
-      description: 'Conception d\'expériences utilisateur intuitives et esthétiques.'
+      title: 'Design UI/UX Créatif',
+      description: 'Conception d\'interfaces utilisateur intuitives et esthétiques, avec une expertise en accessibilité et en responsive design.'
     },
     {
       icon: <FaMobile className="w-8 h-8" />,
-      title: 'Applications Mobiles',
-      description: 'Développement d\'applications mobiles cross-platform avec React Native.'
+      title: 'Solutions Cross-Platform',
+      description: 'Développement d\'applications web adaptatives et progressives (PWA) pour une expérience optimale sur tous les appareils.'
     },
     {
       icon: <FaServer className="w-8 h-8" />,
-      title: 'Backend Development',
-      description: 'Création d\'APIs RESTful et gestion de bases de données.'
+      title: 'Architecture Technique',
+      description: 'Conception et implémentation d\'architectures web robustes, sécurisées et évolutives avec Node.js et les meilleures pratiques.'
     }
   ];
 
@@ -83,7 +35,7 @@ const About = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="py-20 px-4"
+      className="py-20 px-4 bg-white dark:bg-gray-900"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -93,7 +45,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">À propos de moi</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">À propos de moi</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Développeur web passionné avec une expertise en création d'applications web modernes
             et performantes. Je combine créativité et compétences techniques pour donner vie
@@ -108,24 +60,22 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl font-bold mb-6">Compétences</h2>
-            <div className="space-y-4">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Compétences</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {skills.map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between mb-1">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-gray-600 dark:text-gray-400">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                      className="bg-primary-500 h-2.5 rounded-full"
-                    />
-                  </div>
-                </div>
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
+                >
+                  <div className="text-[#2EC4B6] mb-2">{skill.icon}</div>
+                  <div className="text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">{skill.name}</div>
+                  <span className={`px-2 py-1 text-xs rounded-full ${getLevelColor(skill.levelText)}`}>
+                    {skill.levelText}
+                  </span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -205,6 +155,35 @@ const About = () => {
                   </div>
                   <span className="inline-block px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">
                     {edu.type}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="animate__animated animate__fadeInUp">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
+              Objectifs d'Apprentissage
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {learningGoals.map((goal) => (
+                <div 
+                  key={goal.id}
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300"
+                >
+                  <div className="flex items-center mb-4">
+                    <div className="text-primary-500 mr-3">
+                      {goal.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                      {goal.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {goal.description}
+                  </p>
+                  <span className="inline-block px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">
+                    {goal.status}
                   </span>
                 </div>
               ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SEO from '../utils/SEO';
+import SEO from '../assets/utils/SEO';
 import 'animate.css';
 
 const PolitiqueConfidentialite = () => {

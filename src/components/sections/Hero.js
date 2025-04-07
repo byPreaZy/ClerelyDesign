@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import clsx from 'clsx';
+import { useTheme } from '../../context/ThemeContext';
+import { socialLinks, heroContent } from '../../components/data/hero';
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
-  const fullText = "Développeur Full Stack & Graphiste";
+  const fullText = heroContent.title;
   const [isTyping, setIsTyping] = useState(true);
+  const { theme } = useTheme();
 
   useEffect(() => {
     let timeout;
@@ -30,7 +32,7 @@ const Hero = () => {
       }
     }
     return () => clearTimeout(timeout);
-  }, [currentText, isTyping]);
+  }, [currentText, isTyping, fullText]);
 
   const renderColoredText = (text) => {
     const words = text.split(' ');
@@ -63,34 +65,16 @@ const Hero = () => {
     });
   };
 
-  const socialLinks = [
-    {
-      icon: <FaGithub className="w-6 h-6" />,
-      href: 'https://github.com/byPreaZy',
-      label: 'GitHub',
-    },
-    {
-      icon: <FaLinkedin className="w-6 h-6" />,
-      href: 'https://www.linkedin.com/in/kévin-clere-209b97206/',
-      label: 'LinkedIn',
-    },
-    {
-      icon: <FaTwitter className="w-6 h-6" />,
-      href: 'https://twitter.com/PreaZyFX',
-      label: 'Twitter',
-    },
-    {
-      icon: <FaFacebook className="w-6 h-6" />,
-      href: 'https://www.facebook.com/Clerelydesign',
-      label: 'Facebook',
-    },
-  ];
-
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background-light dark:bg-background-dark">
       {/* Background gradient */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-primary/10"
+        className={clsx(
+          "absolute inset-0 bg-gradient-to-br",
+          theme === 'dark' 
+            ? "from-primary/5 via-secondary/5 to-primary/5" 
+            : "from-primary/10 via-secondary/10 to-primary/10"
+        )}
         style={{
           backgroundSize: '400% 400%',
           animation: 'gradient 15s ease infinite',
@@ -98,57 +82,53 @@ const Hero = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center relative z-10">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8"
-        >
-          <span className="relative inline-block">
-            {renderColoredText(currentText)}
-            <motion.span
-              className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#2EC4B6]/80 via-[#FF9F1C]/80 to-[#2EC4B6]/80"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-12"
-        >
-          <span className="text-[#2EC4B6]/80">Création d'applications web</span>
-          <span className="mx-2 text-[#2EC4B6]/60">modernes</span>
-          <span className="mx-2">&</span>
-          <span className="text-[#FF9F1C]/80">d'identités visuelles</span>
-          <span className="mx-1 text-[#FF9F1C]/60">uniques</span>
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex justify-center space-x-6"
+          transition={{ duration: 0.5 }}
+          className="space-y-6"
         >
-          {socialLinks.map((link) => (
+          <h1 className="text-4xl md:text-6xl font-bold text-text-light dark:text-text-dark">
+            {renderColoredText(currentText)}
+          </h1>
+          
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            {heroContent.description}
+          </p>
+          
+          <div className="flex justify-center space-x-4 mt-8">
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+                aria-label={link.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="mt-12"
+          >
             <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={clsx(
-                'text-gray-600/80 dark:text-gray-300/80 hover:text-[#2EC4B6]/90 dark:hover:text-[#2EC4B6]/90',
-                'transition-colors duration-300 transform hover:scale-110'
-              )}
-              aria-label={link.label}
+              href={heroContent.ctaButton.href}
+              className="inline-block px-8 py-3 bg-[#2EC4B6] text-white rounded-lg font-medium hover:bg-[#2EC4B6]/90 transition-colors duration-200"
             >
-              {link.icon}
+              {heroContent.ctaButton.text}
             </a>
-          ))}
+          </motion.div>
         </motion.div>
       </div>
     </div>

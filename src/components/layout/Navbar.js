@@ -36,7 +36,9 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled 
+          ? 'bg-white/80 dark:bg-gray-800/90 backdrop-blur-md shadow-lg' 
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +48,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Logo"
-                className="h-14 w-auto md:h-18 object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-14 w-auto md:h-18 object-contain transition-transform duration-300 group-hover:scale-105 dark:drop-shadow-[0_0_3px_rgba(255,255,255,0.3)]"
               />
               <motion.div
                 initial={{ opacity: 0, y: 5 }}
@@ -103,28 +105,31 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            
+            {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-              aria-label={`Passer au thème ${theme === 'light' ? 'sombre' : 'clair'}`}
+              className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+              aria-label={theme === 'dark' ? 'Passer au thème clair' : 'Passer au thème sombre'}
             >
-              {theme === 'light' ? <FaMoon className="w-5 h-5" /> : <FaSun className="w-5 h-5" />}
+              {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-              aria-label={`Passer au thème ${theme === 'light' ? 'sombre' : 'clair'}`}
+              className="p-2 mr-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+              aria-label={theme === 'dark' ? 'Passer au thème clair' : 'Passer au thème sombre'}
             >
-              {theme === 'light' ? <FaMoon className="w-5 h-5" /> : <FaSun className="w-5 h-5" />}
+              {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
             </button>
+            
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-              aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-[#2EC4B6] dark:hover:text-[#2EC4B6] focus:outline-none"
+              aria-label="Menu"
             >
               {isMobileMenuOpen ? <FaTimes className="w-6 h-6" /> : <FaBars className="w-6 h-6" />}
             </button>
@@ -132,7 +137,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -140,18 +145,18 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
+            className="md:hidden fixed top-24 left-0 right-0 bg-white dark:bg-gray-800/95 backdrop-blur-md shadow-lg z-40"
           >
-            <div className="px-4 pt-2 pb-3 space-y-1">
+            <div className="px-4 py-3 space-y-2 max-h-[calc(100vh-6rem)] overflow-y-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                     location.pathname === link.path
-                      ? 'text-[#2EC4B6] dark:text-[#2EC4B6] bg-[#2EC4B6]/10 dark:bg-[#2EC4B6]/20'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-[#2EC4B6] dark:hover:text-[#2EC4B6] hover:bg-gray-50 dark:hover:bg-gray-800'
+                      ? 'text-[#2EC4B6] dark:text-[#2EC4B6] bg-gray-100/50 dark:bg-gray-700/50'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-[#2EC4B6] dark:hover:text-[#2EC4B6] hover:bg-gray-100/30 dark:hover:bg-gray-700/30'
                   }`}
                 >
                   {link.label}

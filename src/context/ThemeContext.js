@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
@@ -11,39 +11,35 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    // Vérifier le localStorage
+  const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
+    return savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
 
-    // Vérifier les préférences système
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-
-    return 'light';
+  const [highContrast, setHighContrast] = useState(() => {
+    return localStorage.getItem('highContrast') === 'true';
   });
 
   useEffect(() => {
-    // Mettre à jour le localStorage
-    localStorage.setItem('theme', theme);
+    document.documentElement.classList.toggle('dark', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
-    // Mettre à jour la classe sur l'élément html
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
+  useEffect(() => {
+    document.documentElement.classList.toggle('high-contrast', highContrast);
+    localStorage.setItem('highContrast', highContrast);
+  }, [highContrast]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setIsDarkMode(prev => !prev);
+  };
+
+  const toggleHighContrast = () => {
+    setHighContrast(prev => !prev);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDarkMode, highContrast, toggleTheme, toggleHighContrast }}>
       {children}
     </ThemeContext.Provider>
   );

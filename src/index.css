@@ -24,8 +24,8 @@
     --color-primary: 59 130 246;
     --color-secondary: 139 92 246;
     --color-accent: 236 72 153;
-    --color-background: 17 24 39;
-    --color-text: 255 255 255;
+    --color-background: 255 255 255;
+    --color-text: 15 23 42;
   }
 
   html {
@@ -33,23 +33,26 @@
   }
 
   .dark {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #2a2a2a;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
     --text-primary: #f8fafc;
     --text-secondary: #e2e8f0;
     --accent-primary: #60a5fa;
     --accent-secondary: #818cf8;
     --accent-tertiary: #a78bfa;
-    --border-color: #2a2a2a;
+    --border-color: #334155;
 
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
 
-    --color-background: 17 24 39;
-    --color-text: 255 255 255;
+    --color-primary: 96 165 250;
+    --color-secondary: 129 140 248;
+    --color-accent: 244 114 182;
+    --color-background: 15 23 42;
+    --color-text: 248 250 252;
   }
 
   /* Configuration des couleurs Tailwind */
@@ -557,6 +560,35 @@
   .container-custom {
     @apply px-4;
   }
+
+  /* Optimisation des menus déroulants sur mobile */
+  .dropdown-menu {
+    @apply max-h-[80vh] overflow-y-auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Amélioration de la lisibilité sur mobile */
+  body {
+    @apply text-base;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Optimisation des interactions tactiles */
+  button, 
+  a, 
+  [role="button"] {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Amélioration de l'espacement sur mobile */
+  .section-padding {
+    @apply py-8 px-4;
+  }
+
+  /* Optimisation des images sur mobile */
+  img {
+    @apply max-w-full h-auto;
+  }
 }
 
 /* Accessibilité */
@@ -917,4 +949,40 @@ a {
 :root {
   --color-background: 255 255 255;
   --color-text: 17 24 39;
+}
+
+/* Ajout de classes spécifiques pour le thème sombre */
+.dark .navbar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark .hero {
+  background-color: var(--bg-primary);
+}
+
+.dark .hero-text {
+  color: var(--text-primary);
+}
+
+.dark .hero-subtext {
+  color: var(--text-secondary);
+}
+
+.dark .hero-gradient {
+  opacity: 0.1;
+}
+
+/* Transitions fluides pour le changement de thème */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Amélioration de l'accessibilité tactile */
+@media (hover: none) {
+  .hover-effect {
+    @apply active:scale-95;
+  }
 }

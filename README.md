@@ -1,101 +1,147 @@
-# Portfolio - Clere'ly Design
+# Clere'ly Design - Portfolio Créatif
 
-## 🚀 À propos
-Portfolio professionnel présentant mes compétences en développement web et en design graphique. Développé avec React et Tailwind CSS, ce site vitrine met en avant mes projets et mon expertise dans une interface moderne et responsive.
+![Clere'ly Design](public/og-image.jpg)
 
-## 🛠 Technologies utilisées
-- **Frontend**: 
-  - React.js
-  - Tailwind CSS
-  - Framer Motion
-  - React Icons
-- **Outils de développement**:
-  - Node.js
-  - npm
-  - ESLint
-  - PostCSS
+## 🚀 Présentation
 
-## 🔧 Installation
+Clere'ly Design est un portfolio professionnel moderne et élégant, conçu pour présenter des projets de design et de développement web. Cette application React offre une expérience utilisateur immersive avec des animations fluides, un design responsive et une accessibilité optimale.
 
-1. **Cloner le repository**
-```bash
-git clone https://github.com/votre-username/folio.git
-cd folio
+## ✨ Caractéristiques
+
+- **Design Responsive** : Interface adaptée à tous les appareils (mobile, tablette, desktop)
+- **Thème Clair/Sombre** : Basculez entre les modes clair et sombre selon vos préférences
+- **Accessibilité Avancée** : Conforme aux normes WCAG 2.1 avec options de contraste élevé
+- **Animations Fluides** : Transitions et animations élégantes grâce à Framer Motion
+- **SEO Optimisé** : Balises meta complètes pour un référencement optimal
+- **Conformité RGPD** : Gestion des cookies et politique de confidentialité intégrées
+- **Protection des Contenus** : Système de mot de passe pour les sections en développement
+- **Performance Optimale** : Chargement différé des composants et préchargement intelligent
+
+## 🛠️ Technologies Utilisées
+
+- **Frontend** : React 18, React Router 6
+- **Styling** : Tailwind CSS, PostCSS
+- **Animations** : Framer Motion
+- **Icônes** : React Icons, Font Awesome
+- **SEO** : React Helmet Async
+- **Accessibilité** : ARIA, contraste élevé, navigation au clavier
+- **Performance** : Lazy loading, code splitting, préchargement intelligent
+
+## 📋 Structure du Projet
+
+```
+src/
+├── assets/         # Ressources statiques (images, icônes, etc.)
+├── components/     # Composants réutilisables
+│   ├── data/       # Données statiques
+│   ├── features/   # Fonctionnalités spécifiques
+│   ├── layout/     # Composants de mise en page
+│   ├── sections/   # Sections de page
+│   └── ui/         # Composants d'interface utilisateur
+├── context/        # Contextes React (thème, etc.)
+├── hooks/          # Hooks personnalisés
+├── pages/          # Pages de l'application
+└── utils/          # Utilitaires et helpers
 ```
 
-2. **Installer les dépendances**
+## 🔒 Fonctionnalités de Sécurité et Confidentialité
+
+- **Gestion des Cookies** : Bannière de consentement RGPD
+- **Politique de Confidentialité** : Page dédiée aux mentions légales
+- **Protection des Données** : Conformité aux normes RGPD
+- **Sécurité des Accès** : Système de mot de passe pour les sections en développement
+
+## 🌐 Accessibilité
+
+- **Navigation au Clavier** : Support complet de la navigation au clavier
+- **Contraste Élevé** : Option pour améliorer la lisibilité
+- **Textes Alternatifs** : Images avec descriptions pour les lecteurs d'écran
+- **Structure Sémantique** : Utilisation appropriée des balises HTML5
+- **Messages d'Erreur** : Feedback clair pour les utilisateurs
+
+## 🚀 Installation et Démarrage
+
+### Prérequis
+
+- Node.js (v14 ou supérieur)
+- npm ou yarn
+
+### Installation
+
 ```bash
+# Cloner le dépôt
+git clone https://github.com/votre-username/clerely-design.git
+
+# Accéder au répertoire
+cd clerely-design
+
+# Installer les dépendances
 npm install
+# ou
+yarn install
 ```
 
-3. **Lancer le serveur de développement**
+### Démarrage en Mode Développement
+
 ```bash
 npm start
-```
-L'application sera accessible à l'adresse [http://localhost:3000](http://localhost:3000)
-
-## 📁 Structure du projet
-```
-folio/
-├── public/
-│   └── assets/
-│       └── images/
-├── src/
-│   ├── components/
-│   │   ├── layout/
-│   │   └── sections/
-│   ├── pages/
-│   ├── utils/
-│   └── App.js
-├── package.json
-└── tailwind.config.js
+# ou
+yarn start
 ```
 
-## 🔍 Fonctionnalités principales
-- Design responsive et moderne
-- Animations fluides avec Framer Motion
-- Mode sombre/clair
-- Formulaire de contact fonctionnel
-- Galerie de projets interactive
-- Optimisation SEO
+L'application sera accessible à l'adresse [http://localhost:3000](http://localhost:3000).
 
-## 🚀 Déploiement
-Le site est hébergé sur IONOS. Pour déployer :
+### Construction pour la Production
 
 ```bash
 npm run build
+# ou
+yarn build
 ```
-Les fichiers de production seront générés dans le dossier `build/`.
 
-## 🔄 Workflow de développement
-1. Créer une nouvelle branche pour chaque fonctionnalité
-2. Développer et tester localement
-3. Créer une Pull Request
-4. Review et merge après validation
+## 📱 Responsive Design
 
-## 📝 Convention de commits
-```
-feat: Nouvelle fonctionnalité
-fix: Correction de bug
-style: Modifications de style
-docs: Documentation
-refactor: Refactorisation de code
-```
+L'application est conçue selon l'approche "Mobile First" et s'adapte parfaitement à tous les appareils :
+
+- **Mobile** : < 640px
+- **Tablette** : 640px - 1024px
+- **Desktop** : > 1024px
+
+## 🔄 Thème Clair/Sombre
+
+Le thème de l'application s'adapte automatiquement aux préférences système de l'utilisateur, avec la possibilité de basculer manuellement entre les modes clair et sombre.
+
+## 📊 SEO
+
+L'application est optimisée pour les moteurs de recherche avec :
+
+- Balises meta complètes
+- Structure sémantique
+- URLs optimisées
+- Sitemap XML
+- Balises Open Graph pour les réseaux sociaux
+
+## 🔒 Conformité RGPD
+
+L'application respecte les normes RGPD avec :
+
+- Bannière de consentement aux cookies
+- Politique de confidentialité détaillée
+- Mentions légales complètes
+- Gestion transparente des données utilisateur
 
 ## 🤝 Contribution
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'feat: Add AmazingFeature'`)
-4. Push sur la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
 
-## 📫 Contact
-- Kévin Clere
-- Email: clerelydesign@gmail.com
-- Site: [clerely-design.fr](https://clerely-design.fr)
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
 
 ## 📄 Licence
+
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
+## 👤 Auteur
+
+**Clere'ly Design** - [Site Web](https://clerely-design.fr)
+
 ---
-Développé avec ❤️ par Kévin Clere 
+
+*Ce README est en constante évolution. N'hésitez pas à suggérer des améliorations.* 

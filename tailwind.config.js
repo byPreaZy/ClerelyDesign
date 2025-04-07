@@ -17,12 +17,12 @@ module.exports = {
         'accent-secondary': 'var(--accent-secondary)',
         'accent-tertiary': 'var(--accent-tertiary)',
         primary: {
-          DEFAULT: '#2563EB',
-          dark: '#1D4ED8',
+          light: '#3B82F6',
+          dark: '#60A5FA',
         },
         secondary: {
-          DEFAULT: '#059669',
-          dark: '#047857',
+          light: '#10B981',
+          dark: '#34D399',
         },
         background: {
           light: '#FFFFFF',
@@ -35,9 +35,7 @@ module.exports = {
         accent: '#0EA5E9',
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
         mono: ['source-code-pro', 'Menlo', 'Monaco', 'Consolas', 'Courier New',
           'monospace'],
       },
@@ -95,4 +93,11 @@ module.exports = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      backgroundColor: ['dark'],
+      textColor: ['dark'],
+      borderColor: ['dark'],
+    },
+  },
 } 

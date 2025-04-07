@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SEO from '../utils/SEO';
+import SEO from '../assets/utils/SEO';
 import 'animate.css';
 
 const MentionsLegales = () => {
@@ -41,7 +41,7 @@ const MentionsLegales = () => {
               Ce site est édité par CLERE Kévin<br />
               Adresse : <a href="https://www.google.com/maps/search/?api=1&query=55+impasse+des+buguets+71500+Ratte+France" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark">55 impasse des buguets, 71500 Ratte</a><br />
               Email : <a href="mailto:clerelydesign@gmail.com" className="text-primary hover:text-primary-dark">clerelydesign@gmail.com</a><br />
-              Téléphone : <a href="tel:+33695490525" className="text-primary hover:text-primary-dark">06 95 49 05 25</a>
+              Téléphone : <a href="tel:+33695490525" className="text-primary hover:text-primary-dark">07 49 79 63 53</a>
             </p>
           </section>
 
