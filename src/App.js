@@ -12,6 +12,7 @@ import LoadingSpinner from './components/ui/LoadingSpinner';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Background from './components/layout/Background';
 import AccessibilitySettings from './components/AccessibilitySettings';
+import './styles/accessibility.css';
 
 // Préchargement des composants principaux
 const Home = lazy(() => import(/* webpackPrefetch: true */ './pages/Home'));

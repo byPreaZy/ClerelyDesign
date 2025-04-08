@@ -26,9 +26,44 @@ export const ThemeProvider = ({ children }) => {
   }, [isDarkMode]);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('high-contrast', highContrast);
+    const root = document.documentElement;
+    if (highContrast) {
+      root.classList.add('high-contrast');
+      if (isDarkMode) {
+        root.style.setProperty('--bg-primary', '#000000');
+        root.style.setProperty('--bg-secondary', '#000000');
+        root.style.setProperty('--bg-tertiary', '#000000');
+        root.style.setProperty('--text-primary', '#ffffff');
+        root.style.setProperty('--text-secondary', '#ffffff');
+        root.style.setProperty('--accent-primary', '#ffffff');
+        root.style.setProperty('--accent-secondary', '#ffffff');
+        root.style.setProperty('--accent-tertiary', '#ffffff');
+        root.style.setProperty('--border-color', '#ffffff');
+      } else {
+        root.style.setProperty('--bg-primary', '#ffffff');
+        root.style.setProperty('--bg-secondary', '#ffffff');
+        root.style.setProperty('--bg-tertiary', '#ffffff');
+        root.style.setProperty('--text-primary', '#000000');
+        root.style.setProperty('--text-secondary', '#000000');
+        root.style.setProperty('--accent-primary', '#000000');
+        root.style.setProperty('--accent-secondary', '#000000');
+        root.style.setProperty('--accent-tertiary', '#000000');
+        root.style.setProperty('--border-color', '#000000');
+      }
+    } else {
+      root.classList.remove('high-contrast');
+      root.style.removeProperty('--bg-primary');
+      root.style.removeProperty('--bg-secondary');
+      root.style.removeProperty('--bg-tertiary');
+      root.style.removeProperty('--text-primary');
+      root.style.removeProperty('--text-secondary');
+      root.style.removeProperty('--accent-primary');
+      root.style.removeProperty('--accent-secondary');
+      root.style.removeProperty('--accent-tertiary');
+      root.style.removeProperty('--border-color');
+    }
     localStorage.setItem('highContrast', highContrast);
-  }, [highContrast]);
+  }, [highContrast, isDarkMode]);
 
   const toggleTheme = () => {
     setIsDarkMode(prev => !prev);

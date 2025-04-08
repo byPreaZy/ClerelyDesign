@@ -42,25 +42,25 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-20 md:h-24">
           <Link to="/" className="flex flex-col items-center group">
             <div className="relative flex flex-col items-center">
               <img
                 src={logo}
                 alt="Logo"
-                className="h-14 w-auto md:h-18 object-contain transition-transform duration-300 group-hover:scale-105 dark:drop-shadow-[0_0_3px_rgba(255,255,255,0.3)]"
+                className="h-12 w-auto md:h-16 object-contain transition-transform duration-300 group-hover:scale-105 dark:drop-shadow-[0_0_3px_rgba(255,255,255,0.3)]"
               />
               <motion.div
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="-mt-5 text-center"
+                className="-mt-4 md:-mt-5 text-center"
               >
                 <div className="flex">
                   {letters.map((letter, index) => (
                     <motion.span
                       key={index}
-                      className={`text-sm md:text-base font-bold tracking-wider ${
+                      className={`text-xs md:text-base font-bold tracking-wider ${
                         letter === ' ' ? 'w-1' : ''
                       }`}
                       initial={{ opacity: 0, y: 20 }}
@@ -120,10 +120,10 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleTheme}
-              className="p-2 mr-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+              className="p-2 mr-3 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
               aria-label={theme === 'dark' ? 'Passer au thème clair' : 'Passer au thème sombre'}
             >
-              {theme === 'dark' ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
+              {theme === 'dark' ? <FaSun className="w-6 h-6" /> : <FaMoon className="w-6 h-6" />}
             </button>
             
             <button
@@ -131,7 +131,7 @@ const Navbar = () => {
               className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-[#2EC4B6] dark:hover:text-[#2EC4B6] focus:outline-none"
               aria-label="Menu"
             >
-              {isMobileMenuOpen ? <FaTimes className="w-6 h-6" /> : <FaBars className="w-6 h-6" />}
+              {isMobileMenuOpen ? <FaTimes className="w-7 h-7" /> : <FaBars className="w-7 h-7" />}
             </button>
           </div>
         </div>
@@ -145,18 +145,18 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed top-24 left-0 right-0 bg-white dark:bg-gray-800/95 backdrop-blur-md shadow-lg z-40"
+            className="md:hidden fixed top-20 md:top-24 left-0 right-0 bg-white dark:bg-gray-800/95 backdrop-blur-md shadow-lg z-40"
           >
-            <div className="px-4 py-3 space-y-2 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <div className="px-4 py-4 space-y-3 max-h-[calc(100vh-5rem)] overflow-y-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                  className={`block py-3 px-2 text-base font-medium rounded-md transition-colors duration-200 ${
                     location.pathname === link.path
-                      ? 'text-[#2EC4B6] dark:text-[#2EC4B6] bg-gray-100/50 dark:bg-gray-700/50'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-[#2EC4B6] dark:hover:text-[#2EC4B6] hover:bg-gray-100/30 dark:hover:bg-gray-700/30'
+                      ? 'text-[#2EC4B6] dark:text-[#2EC4B6] bg-gray-100 dark:bg-gray-700'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-[#2EC4B6] dark:hover:text-[#2EC4B6] hover:bg-gray-50 dark:hover:bg-gray-700/50'
                   }`}
                 >
                   {link.label}

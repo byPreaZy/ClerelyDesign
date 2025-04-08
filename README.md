@@ -144,4 +144,81 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ---
 
-*Ce README est en constante évolution. N'hésitez pas à suggérer des améliorations.* 
+*Ce README est en constante évolution. N'hésitez pas à suggérer des améliorations.*
+
+## Description
+Clere'ly Design est une application web moderne développée avec React, offrant une expérience utilisateur optimale sur tous les appareils. L'application met l'accent sur l'accessibilité, le design responsive et les performances.
+
+## Fonctionnalités
+
+### Accessibilité
+- Mode sombre/clair automatique
+- Mode contraste élevé pour une meilleure lisibilité
+- Navigation au clavier optimisée
+- Support des lecteurs d'écran
+- Textes alternatifs pour les images
+- Structure sémantique HTML
+- Conformité WCAG 2.1
+
+### Design Responsive
+- Approche Mobile-First
+- Adaptation fluide à tous les écrans
+- Interface utilisateur intuitive
+- Navigation optimisée pour mobile
+- Menus et boutons adaptés au tactile
+- Tailles de texte et espacements optimisés
+
+### Performance
+- Chargement différé des composants
+- Optimisation des images
+- Mise en cache efficace
+- Animations fluides
+- Temps de chargement optimisés
+
+## Technologies Utilisées
+- React 18
+- Tailwind CSS
+- Framer Motion
+- React Router v6
+- Context API
+- Local Storage
+
+## Installation
+
+```bash
+# Cloner le repository
+git clone https://github.com/votre-username/clerely-design.git
+
+# Installer les dépendances
+npm install
+
+# Lancer l'application en mode développement
+npm run dev
+```
+
+## Structure du Projet
+```
+src/
+├── components/         # Composants React
+├── context/           # Contextes React
+├── hooks/             # Hooks personnalisés
+├── pages/             # Pages de l'application
+├── styles/            # Styles CSS
+└── utils/             # Utilitaires
+```
+
+## Contribution
+Les contributions sont les bienvenues ! N'hésitez pas à :
+1. Fork le projet
+2. Créer une branche (`git checkout -b feature/AmazingFeature`)
+3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
+
+## Licence
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## Contact
+- Email : contact@clerelydesign.com
+- Site web : [clerelydesign.com](https://clerelydesign.com)
+- Twitter : [@ClerelyDesign](https://twitter.com/ClerelyDesign) 
