@@ -1,50 +1,42 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
-const ProjectGrid = ({ 
-  projects, 
-  className = '',
-  columns = { sm: 1, md: 2, lg: 3 },
-  gap = 6,
-  delay = 0,
-  animate = true
-}) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: delay,
-      },
-    },
-  };
-
-  const gridCols = {
-    sm: `grid-cols-${columns.sm}`,
-    md: `md:grid-cols-${columns.md}`,
-    lg: `lg:grid-cols-${columns.lg}`,
-  };
-
-  const Component = animate ? motion.div : 'div';
-
+const ProjectGrid = ({ projects = [] }) => {
   return (
-    <Component
-      className={`grid ${gridCols.sm} ${gridCols.md} ${gridCols.lg} gap-${gap} ${className}`}
-      variants={containerVariants}
-      initial={animate ? "hidden" : undefined}
-      whileInView={animate ? "visible" : undefined}
-      viewport={{ once: true, margin: "-100px" }}
+    <motion.div
+      layout
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
     >
-      {projects.map((project, index) => (
-        <ProjectCard
-          key={project.id || index}
-          {...project}
-          delay={delay + index * 0.1}
-        />
-      ))}
-    </Component>
+      <AnimatePresence>
+        {projects && projects.length > 0 ? (
+          projects.map((project, index) => (
+            <motion.div
+              key={project.title || index}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                tags={project.tags}
+                image={project.image}
+                githubLink={project.githubLink}
+                externalLink={project.externalLink}
+                featured={project.featured}
+              />
+            </motion.div>
+          ))
+        ) : (
+          <div className="col-span-full text-center py-12 text-gray-500 dark:text-gray-400">
+            Aucun projet à afficher
+          </div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

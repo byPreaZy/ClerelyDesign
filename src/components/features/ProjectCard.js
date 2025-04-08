@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import clsx from 'clsx';
-import OptimizedImage from '../../ui/OptimizedImage';
+import OptimizedImage from '../ui/OptimizedImage.js';
 
 const ProjectCard = ({ 
   title, 

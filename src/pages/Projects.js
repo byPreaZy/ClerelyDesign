@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ProjectGrid from '../components/features/projects/ProjectGrid';
-import { useProjects } from '../hooks/useProjects';
-import { projects } from '../components/data/projects';
+import ProjectGrid from '../components/features/ProjectGrid';
+import { useProjects } from '../assets/hooks/useProjects';
+import { projects } from '../data/projects';
 import UnderConstructionWithAccess from '../components/ui/UnderConstructionWithAccess';
 import { FaCode } from 'react-icons/fa';
 

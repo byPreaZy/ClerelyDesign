@@ -1,5 +1,5 @@
 export const heroContent = {
-  title: "Développeur Full Stack & Graphiste",
+  title: "Développeur FullStack & Graphiste",
   description: "Création de solutions digitales innovantes, combinant design et développement pour des expériences web exceptionnelles.",
   ctaButton: {
     text: "Voir mes projets",

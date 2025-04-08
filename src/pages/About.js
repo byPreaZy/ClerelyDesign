@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaPalette, FaMobile, FaServer } from 'react-icons/fa';
 import 'animate.css';
-import { skills, experiences, education, learningGoals } from '../components/data/about';
-import { getLevelColor } from '../components/data/about/skills';
+import { skills, experiences, education, learningGoals } from '../data/about';
+import { getLevelColor } from '../data/about/skills';
 
 const About = () => {
   const services = [

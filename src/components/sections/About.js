@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { skills, experiences, learningGoals } from '../../components/data/about';
-import { getLevelColor } from '../../components/data/about/skills';
+import { skills, experiences, learningGoals } from '../../data/about';
+import { getLevelColor } from '../../data/about/skills';
 
 const About = () => {
   return (

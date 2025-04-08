@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import '../../assets/css/form.css';
-import { contactInfo, availabilityInfo } from '../../components/data/contact';
+import '../../assets/styles/form.css';
+import { contactInfo, availabilityInfo } from '../../data/contact';
 
 const Contact = () => {
   const [formData, setFormData] = useState({

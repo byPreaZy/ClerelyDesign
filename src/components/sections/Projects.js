@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 import clsx from 'clsx';
-import { projects, categories, filters } from '../../components/data/projects';
+import { projects, categories, filters } from '../../data/projects';
 import UnderConstructionWithAccess from '../ui/UnderConstructionWithAccess';
 
 const ProjectCard = ({ project }) => {

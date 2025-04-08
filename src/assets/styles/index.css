@@ -1,11 +1,7 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import './styles/accessibility.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './accessibility.css';
 
 @layer base {
   :root {
@@ -324,6 +320,7 @@
   /* Navigation élégante */
   .nav-link {
     @apply relative text-white/70 hover:text-white transition-colors duration-300;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .nav-link::after {
@@ -333,6 +330,18 @@
 
   .nav-link:hover::after {
     @apply w-full;
+  }
+
+  /* Suppression du focus par défaut pour les boutons de la navbar */
+  .navbar button:focus,
+  .navbar a:focus {
+    @apply outline-none;
+  }
+
+  /* Style de focus personnalisé pour l'accessibilité */
+  .navbar button:focus-visible,
+  .navbar a:focus-visible {
+    @apply ring-2 ring-accent-primary/50 ring-offset-2 ring-offset-bg-primary rounded-md;
   }
 
   /* Grille responsive */

@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { AnimatePresence } from 'framer-motion';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider } from './components/context/ThemeContext.js';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import CookieConsent from './components/features/CookieConsent';
@@ -11,8 +11,8 @@ import PageTransition from './components/layout/PageTransition';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Background from './components/layout/Background';
-import AccessibilitySettings from './components/AccessibilitySettings';
-import './styles/accessibility.css';
+import AccessibilitySettings from './components/ui/AccessibilitySettings';
+import './assets/styles/accessibility.css';
 
 // Préchargement des composants principaux
 const Home = lazy(() => import(/* webpackPrefetch: true */ './pages/Home'));

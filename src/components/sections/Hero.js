@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
-import { useTheme } from '../../context/ThemeContext';
-import { socialLinks, heroContent } from '../../components/data/hero';
+import { useTheme } from '../../components/context/ThemeContext.js';
+import { socialLinks, heroContent } from '../../data/hero';
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
@@ -16,17 +16,17 @@ const Hero = () => {
       if (currentText.length < fullText.length) {
         timeout = setTimeout(() => {
           setCurrentText(fullText.slice(0, currentText.length + 1));
-        }, 100);
+        }, 80);
       } else {
         timeout = setTimeout(() => {
           setIsTyping(false);
-        }, 5000);
+        }, 3000);
       }
     } else {
       if (currentText.length > 0) {
         timeout = setTimeout(() => {
           setCurrentText(currentText.slice(0, -1));
-        }, 50);
+        }, 40);
       } else {
         setIsTyping(true);
       }
@@ -38,29 +38,30 @@ const Hero = () => {
     const words = text.split(' ');
     return words.map((word, index) => {
       let colorClass = 'text-gray-900/90 dark:text-white/90';
-      let delay = index * 0.1;
+      let delay = index * 0.08;
 
       if (word === 'Développeur') {
         colorClass = 'text-[#2EC4B6]/90';
-      } else if (word === 'Full') {
+      } else if (word === 'FullStack') {
         colorClass = 'text-[#2EC4B6]/80';
-      } else if (word === 'Stack') {
-        colorClass = 'text-[#2EC4B6]/70';
       } else if (word === 'Graphiste') {
         colorClass = 'text-[#FF9F1C]/90';
       }
 
       return (
-        <motion.span
-          key={index}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay }}
-          className={`${colorClass} inline-block`}
-        >
-          {word}
-          {index < words.length - 1 && ' '}
-        </motion.span>
+        <React.Fragment key={index}>
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25, delay }}
+            className={`${colorClass} inline-block`}
+          >
+            {word}
+          </motion.span>
+          {index < words.length - 1 && (
+            <span className="inline-block" style={{ width: '0.5em' }}>&nbsp;</span>
+          )}
+        </React.Fragment>
       );
     });
   };

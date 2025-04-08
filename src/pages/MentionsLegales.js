@@ -38,7 +38,7 @@ const MentionsLegales = () => {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">1. Éditeur du site</h2>
             <p>
-              Ce site est édité par CLERE Kévin<br />
+              Ce site est édité par Clere'ly Design<br />
               Adresse : <a href="https://www.google.com/maps/search/?api=1&query=55+impasse+des+buguets+71500+Ratte+France" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark">55 impasse des buguets, 71500 Ratte</a><br />
               Email : <a href="mailto:clerelydesign@gmail.com" className="text-primary hover:text-primary-dark">clerelydesign@gmail.com</a><br />
               Téléphone : <a href="tel:+33695490525" className="text-primary hover:text-primary-dark">07 49 79 63 53</a>
@@ -80,7 +80,7 @@ const MentionsLegales = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">6. Crédits</h2>
             <p>
-              Design et développement : [Votre Nom]<br />
+              Design et développement : [Clere Kévin]<br />
               Technologies utilisées : React, Tailwind CSS, Framer Motion
             </p>
           </section>

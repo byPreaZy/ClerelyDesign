@@ -105,7 +105,7 @@ const PolitiqueConfidentialite = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">8. Contact</h2>
             <p>
-              Pour toute question concernant cette politique de confidentialité ou vos données personnelles, veuillez nous contacter à l'adresse suivante : [Votre Email]
+              Pour toute question concernant cette politique de confidentialité ou vos données personnelles, veuillez nous contacter à l'adresse suivante : [clerelydesign@gmail.com]
             </p>
           </section>
         </motion.div>

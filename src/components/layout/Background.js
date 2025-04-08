@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../components/context/ThemeContext.js';
 import clsx from 'clsx';
 import gridDark from '../../assets/svg/grid-dark.svg';
 import gridLight from '../../assets/svg/grid-light.svg';
