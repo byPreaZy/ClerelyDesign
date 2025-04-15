@@ -2,25 +2,31 @@ import React, { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { AnimatePresence } from 'framer-motion';
+
+// Context
 import { ThemeProvider } from './components/context/ThemeContext.js';
+
+// Layout Components
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import CookieConsent from './components/features/CookieConsent';
-import SEO from './assets/utils/SEO';
 import PageTransition from './components/layout/PageTransition';
-import LoadingSpinner from './components/ui/LoadingSpinner';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Background from './components/layout/Background';
-import AccessibilitySettings from './components/ui/AccessibilitySettings';
-import './assets/styles/accessibility.css';
 
-// Préchargement des composants principaux
+// UI Components
+import LoadingSpinner from './components/ui/LoadingSpinner';
+import AccessibilitySettings from './components/ui/AccessibilitySettings';
+import CookieConsent from './components/features/CookieConsent';
+
+// Utils
+import SEO from './assets/utils/SEO';
+import './assets/styles/index.css';
+
+// Lazy loaded pages
 const Home = lazy(() => import(/* webpackPrefetch: true */ './pages/Home'));
 const About = lazy(() => import(/* webpackPrefetch: true */ './pages/About'));
 const Projects = lazy(() => import(/* webpackPrefetch: true */ './pages/Projects'));
 const Contact = lazy(() => import(/* webpackPrefetch: true */ './pages/Contact'));
-
-// Chargement à la demande des autres pages
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'));
 const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'));
 const NotFound = lazy(() => import('./pages/NotFound'));

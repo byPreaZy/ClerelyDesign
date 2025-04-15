@@ -1,4 +1,4 @@
-# Clere'ly Design - Portfolio Créatif
+# 🌿 Clere'ly Design
 
 ![Clere'ly Design](public/og-image.jpg)
 
@@ -32,33 +32,32 @@ Clere'ly Design est un portfolio professionnel moderne et élégant, conçu pour
 
 ```
 src/
-├── assets/         # Ressources statiques (images, icônes, etc.)
-├── components/     # Composants réutilisables
-│   ├── data/       # Données statiques
-│   ├── features/   # Fonctionnalités spécifiques
-│   ├── layout/     # Composants de mise en page
-│   ├── sections/   # Sections de page
-│   └── ui/         # Composants d'interface utilisateur
-├── context/        # Contextes React (thème, etc.)
-├── hooks/          # Hooks personnalisés
-├── pages/          # Pages de l'application
-└── utils/          # Utilitaires et helpers
+├── assets/         # Ressources statiques (images, styles, etc.)
+├── components/     # Composants React réutilisables
+│   ├── context/   # Contextes React (thème, accessibilité)
+│   ├── features/  # Fonctionnalités spécifiques
+│   ├── layout/    # Composants de mise en page
+│   └── ui/        # Composants d'interface utilisateur
+├── config/        # Configuration de l'application
+├── data/          # Données statiques (projets, etc.)
+├── pages/         # Pages de l'application
+└── utils/         # Utilitaires et helpers
 ```
 
 ## 🚀 Installation et Démarrage
 
 ### Prérequis
 
-- Node.js (v14 ou supérieur)
-- npm ou yarn
+- Node.js (v18 ou supérieur)
+- npm (v9 ou supérieur)
 
 ### Installation
 
 ```bash
-# Cloner le dépôt
-git clone https://github.com/votre-username/clerely-design.git
+# Cloner le repository
+git clone https://github.com/byPreaZy/ClerelyDesign.git
 
-# Accéder au répertoire
+# Accéder au dossier
 cd clerely-design
 
 # Installer les dépendances

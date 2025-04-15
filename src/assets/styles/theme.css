@@ -1,0 +1,125 @@
+/* Variables CSS pour le thème */
+:root {
+  /* Couleurs principales */
+  --color-primary: 46, 196, 182;
+  --color-secondary: 255, 183, 77;
+  --color-tertiary: 255, 99, 71;
+  
+  /* Couleurs de fond */
+  --color-bg-primary: 255, 255, 255;
+  --color-bg-secondary: 247, 250, 252;
+  --color-bg-tertiary: 237, 242, 247;
+  
+  /* Couleurs de texte */
+  --color-text-primary: 26, 32, 44;
+  --color-text-secondary: 74, 85, 104;
+  --color-text-tertiary: 160, 174, 192;
+  
+  /* Couleurs de bordure */
+  --color-border: 226, 232, 240;
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  /* Couleurs de fond */
+  --color-bg-primary: 17, 24, 39;
+  --color-bg-secondary: 31, 41, 55;
+  --color-bg-tertiary: 55, 65, 81;
+  
+  /* Couleurs de texte */
+  --color-text-primary: 255, 255, 255;
+  --color-text-secondary: 229, 231, 235;
+  --color-text-tertiary: 209, 213, 219;
+  
+  /* Couleurs de bordure */
+  --color-border: 75, 85, 99;
+  
+  /* Ombres ajustées pour le mode sombre */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+/* Classes utilitaires pour les couleurs */
+.bg-background {
+  background-color: rgb(var(--color-bg-primary));
+}
+
+.bg-background-secondary {
+  background-color: rgb(var(--color-bg-secondary));
+}
+
+.bg-background-tertiary {
+  background-color: rgb(var(--color-bg-tertiary));
+}
+
+.text-text-primary {
+  color: rgb(var(--color-text-primary));
+}
+
+.text-text-secondary {
+  color: rgb(var(--color-text-secondary));
+}
+
+.text-text-tertiary {
+  color: rgb(var(--color-text-tertiary));
+}
+
+.border-border-color {
+  border-color: rgb(var(--color-border));
+}
+
+.bg-accent-primary {
+  background-color: rgb(var(--color-primary));
+}
+
+.bg-accent-secondary {
+  background-color: rgb(var(--color-secondary));
+}
+
+.bg-accent-tertiary {
+  background-color: rgb(var(--color-tertiary));
+}
+
+.text-accent-primary {
+  color: rgb(var(--color-primary));
+}
+
+.text-accent-secondary {
+  color: rgb(var(--color-secondary));
+}
+
+.text-accent-tertiary {
+  color: rgb(var(--color-tertiary));
+}
+
+/* Optimisations pour le mode sombre */
+.dark .shadow-custom {
+  --tw-shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Ajout de classes spécifiques pour le thème sombre */
+.dark .navbar {
+  background-color: rgb(var(--color-bg-secondary));
+  border-bottom: 1px solid rgb(var(--color-border));
+}
+
+.dark .hero {
+  background-color: rgb(var(--color-bg-primary));
+}
+
+.dark .hero-text {
+  color: rgb(var(--color-text-primary));
+}
+
+.dark .hero-subtext {
+  color: rgb(var(--color-text-secondary));
+}
+
+.dark .hero-gradient {
+  opacity: 0.15;
+} 

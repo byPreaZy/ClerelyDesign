@@ -2,31 +2,23 @@ export const projects = [
   {
     title: 'Portfolio Personnel',
     description: 'Un portfolio moderne développé avec React et Tailwind CSS, mettant en valeur mes compétences et projets.',
-    image: '/projects/portfolio.jpg',
+    image: '/images/projects/portfolio.PNG',
     tags: ['React', 'Tailwind CSS', 'Framer Motion'],
-    githubLink: 'https://github.com/votre-username/portfolio',
-    externalLink: 'https://votre-portfolio.com',
+    githubLink: 'https://github.com/byPreaZy/ClerelyDesign',
+    externalLink: 'https://clerely-design.fr',
+    link: '/projects/portfolio',
     category: 'web',
     featured: true
   },
   {
-    title: 'Application E-commerce',
-    description: 'Une plateforme e-commerce complète avec panier, paiement et gestion des commandes.',
-    image: '/projects/ecommerce.jpg',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubLink: 'https://github.com/votre-username/ecommerce',
-    externalLink: 'https://votre-ecommerce.com',
+    title: 'Site LegalHaze',
+    description: 'Une plateforme web moderne dédiée à l\'information et l\'éducation sur le cannabis, offrant des études comparatives internationales, analyses des composés chimiques, guides historiques et législatifs, et ressources éducatives.',
+    image: '/images/projects/legalhaze.PNG',
+    tags: ['React', 'TailwindCSS', 'Framer Motion', 'Chart.js', 'SEO', 'Accessibilité WCAG AA'],
+    githubLink: 'https://github.com/byPreaZy/legalhaze-place',
+    externalLink: 'https://legalhaze.fr',
     category: 'web',
-    featured: false
-  },
-  {
-    title: 'Identité Visuelle - Studio Créatif',
-    description: 'Création complète de l\'identité visuelle d\'un studio de design, incluant logo, charte graphique et supports de communication.',
-    image: '/projects/brand-identity.jpg',
-    tags: ['Illustrator', 'Photoshop', 'Branding'],
-    externalLink: 'https://www.behance.net/votre-username',
-    category: 'design',
-    featured: false
+    featured: true
   },
   {
     title: 'Dashboard Analytics',

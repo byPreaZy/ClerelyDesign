@@ -22,6 +22,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDarkMode);
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
@@ -35,9 +36,10 @@ export const ThemeProvider = ({ children }) => {
         root.style.setProperty('--bg-tertiary', '#000000');
         root.style.setProperty('--text-primary', '#ffffff');
         root.style.setProperty('--text-secondary', '#ffffff');
-        root.style.setProperty('--accent-primary', '#ffffff');
-        root.style.setProperty('--accent-secondary', '#ffffff');
-        root.style.setProperty('--accent-tertiary', '#ffffff');
+        root.style.setProperty('--primary-color', '#ffffff');
+        root.style.setProperty('--secondary-color', '#ffffff');
+        root.style.setProperty('--tertiary-color', '#ffffff');
+        root.style.setProperty('--accent-color', '#ffffff');
         root.style.setProperty('--border-color', '#ffffff');
       } else {
         root.style.setProperty('--bg-primary', '#ffffff');
@@ -45,9 +47,10 @@ export const ThemeProvider = ({ children }) => {
         root.style.setProperty('--bg-tertiary', '#ffffff');
         root.style.setProperty('--text-primary', '#000000');
         root.style.setProperty('--text-secondary', '#000000');
-        root.style.setProperty('--accent-primary', '#000000');
-        root.style.setProperty('--accent-secondary', '#000000');
-        root.style.setProperty('--accent-tertiary', '#000000');
+        root.style.setProperty('--primary-color', '#000000');
+        root.style.setProperty('--secondary-color', '#000000');
+        root.style.setProperty('--tertiary-color', '#000000');
+        root.style.setProperty('--accent-color', '#000000');
         root.style.setProperty('--border-color', '#000000');
       }
     } else {
@@ -57,9 +60,10 @@ export const ThemeProvider = ({ children }) => {
       root.style.removeProperty('--bg-tertiary');
       root.style.removeProperty('--text-primary');
       root.style.removeProperty('--text-secondary');
-      root.style.removeProperty('--accent-primary');
-      root.style.removeProperty('--accent-secondary');
-      root.style.removeProperty('--accent-tertiary');
+      root.style.removeProperty('--primary-color');
+      root.style.removeProperty('--secondary-color');
+      root.style.removeProperty('--tertiary-color');
+      root.style.removeProperty('--accent-color');
       root.style.removeProperty('--border-color');
     }
     localStorage.setItem('highContrast', highContrast);

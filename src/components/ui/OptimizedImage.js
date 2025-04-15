@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaImage } from 'react-icons/fa';
 
 const OptimizedImage = ({ src, alt, className = '', loading = 'lazy', ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,6 +15,7 @@ const OptimizedImage = ({ src, alt, className = '', loading = 'lazy', ...props }
     };
 
     img.onerror = () => {
+      console.error(`Erreur de chargement de l'image: ${src}`);
       setError(true);
     };
 
@@ -47,8 +49,9 @@ const OptimizedImage = ({ src, alt, className = '', loading = 'lazy', ...props }
       />
 
       {error && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-          <span className="text-gray-500 dark:text-gray-400">Image non disponible</span>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800">
+          <FaImage className="text-4xl text-gray-400 dark:text-gray-600 mb-2" />
+          <p className="text-xs text-gray-500 dark:text-gray-400 text-center px-2">Image non disponible</p>
         </div>
       )}
     </div>

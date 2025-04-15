@@ -1,0 +1,88 @@
+/* Styles utilitaires */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-tertiary;
+}
+
+.bg-gradient {
+  @apply bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-tertiary;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-padding {
+  @apply py-12 md:py-16 lg:py-20;
+}
+
+.grid-auto-fit {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.img-container {
+  @apply relative overflow-hidden rounded-lg;
+}
+
+.img-container img {
+  @apply w-full h-full object-cover transition-transform duration-300;
+}
+
+.img-container img.loaded {
+  @apply opacity-100;
+}
+
+.search-container {
+  @apply relative;
+}
+
+.search-toggle {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+.search-overlay {
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50;
+}
+
+.search-content {
+  @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl p-4;
+}
+
+.search-input-container {
+  @apply relative;
+}
+
+.search-icon {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 text-gray-400;
+}
+
+.search-input {
+  @apply w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent-primary;
+}
+
+.search-input:focus {
+  @apply ring-2 ring-accent-primary border-transparent;
+}
+
+.clear-button {
+  @apply absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300;
+}
+
+.search-results {
+  @apply mt-4 space-y-2;
+}
+
+.search-result-item {
+  @apply p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer;
+}

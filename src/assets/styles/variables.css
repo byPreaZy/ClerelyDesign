@@ -1,0 +1,102 @@
+:root {
+  /* Couleurs principales */
+  --primary-color: #2563eb;
+  --primary-color-dark: #1d4ed8;
+  --secondary-color: #7c3aed;
+  --tertiary-color: #ec4899;
+  --accent-color: #f59e0b;
+
+  /* Couleurs de fond */
+  --bg-primary: #ffffff;
+  --bg-primary-dark: #111827;
+  --bg-secondary: #f3f4f6;
+  --bg-secondary-dark: #1f2937;
+
+  /* Couleurs de texte */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-light: #ffffff;
+  --text-dark: #000000;
+
+  /* Dégradés */
+  --gradient-start: var(--primary-color);
+  --gradient-end: var(--secondary-color);
+
+  /* Espacements */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Bordures */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-width: 1px;
+
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Typographie */
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* Z-index */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+}
+
+/* Mode sombre */
+[data-theme="dark"] {
+  --bg-primary: var(--bg-primary-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --text-primary: var(--text-light);
+  --text-secondary: #9ca3af;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+/* Support du mode contraste élevé */
+@media (forced-colors: active) {
+  :root {
+    --primary-color: CanvasText;
+    --secondary-color: CanvasText;
+    --tertiary-color: CanvasText;
+    --accent-color: CanvasText;
+    --text-primary: CanvasText;
+    --text-secondary: CanvasText;
+    --text-light: Canvas;
+    --text-dark: CanvasText;
+  }
+}
+
+/* Support des préférences de réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+  }
+} 

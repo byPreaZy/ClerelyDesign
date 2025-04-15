@@ -2,46 +2,28 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/assets/styles/**/*.css"
   ],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        'text-primary': 'var(--text-primary)',
-        'text-secondary': 'var(--text-secondary)',
-        'bg-primary': 'var(--bg-primary)',
-        'bg-secondary': 'var(--bg-secondary)',
-        'bg-tertiary': 'var(--bg-tertiary)',
-        'border-color': 'var(--border-color)',
-        'accent-primary': 'var(--accent-primary)',
-        'accent-secondary': 'var(--accent-secondary)',
-        'accent-tertiary': 'var(--accent-tertiary)',
-        primary: {
-          light: '#3B82F6',
-          dark: '#60A5FA',
-        },
-        secondary: {
-          light: '#10B981',
-          dark: '#34D399',
-        },
-        background: {
-          light: '#FFFFFF',
-          dark: '#0F172A',
-        },
-        text: {
-          light: '#111827',
-          dark: '#F8FAFC',
-        },
-        accent: '#0EA5E9',
+        background: 'rgb(var(--color-bg-primary) / <alpha-value>)',
+        'background-secondary': 'rgb(var(--color-bg-secondary) / <alpha-value>)',
+        'background-tertiary': 'rgb(var(--color-bg-tertiary) / <alpha-value>)',
+        'text-primary': 'rgb(var(--color-text-primary) / <alpha-value>)',
+        'text-secondary': 'rgb(var(--color-text-secondary) / <alpha-value>)',
+        'text-tertiary': 'rgb(var(--color-text-tertiary) / <alpha-value>)',
+        'border-color': 'rgb(var(--color-border) / <alpha-value>)',
+        'accent-primary': 'rgb(var(--color-primary) / <alpha-value>)',
+        'accent-secondary': 'rgb(var(--color-secondary) / <alpha-value>)',
+        'accent-tertiary': 'rgb(var(--color-tertiary) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['source-code-pro', 'Menlo', 'Monaco', 'Consolas', 'Courier New',
-          'monospace'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 4px 8px rgba(0, 0, 0, 0.1)',
-        'card-hover': '0 8px 16px rgba(0, 0, 0, 0.2)',
+        'custom': 'var(--shadow-custom)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',

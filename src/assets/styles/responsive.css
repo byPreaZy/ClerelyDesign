@@ -1,0 +1,87 @@
+/* Optimisations pour les petits écrans (mobile) */
+@media (max-width: 640px) {
+  .container-custom {
+    @apply px-4;
+  }
+
+  .section-padding {
+    @apply py-8 px-4;
+  }
+
+  .grid-auto-fit {
+    @apply grid-cols-1;
+  }
+
+  /* Optimisation des menus déroulants sur mobile */
+  .dropdown-menu {
+    @apply max-h-[80vh] overflow-y-auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Amélioration de la lisibilité sur mobile */
+  body {
+    @apply text-base;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Optimisation des interactions tactiles */
+  button,
+  a,
+  [role="button"] {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Optimisation des images sur mobile */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  .search-overlay {
+    @apply p-4;
+  }
+
+  .search-content {
+    @apply w-full max-w-none;
+  }
+}
+
+/* Optimisations pour les écrans moyens (tablette) */
+@media (max-width: 768px) {
+  .theme-toggle {
+    @apply top-3 right-3 p-2;
+  }
+
+  .cookie-banner {
+    @apply py-3;
+  }
+
+  .image-container {
+    @apply min-h-[150px] aspect-video;
+  }
+
+  .search-overlay {
+    @apply pt-16;
+  }
+
+  .search-content {
+    @apply mx-0 rounded-none;
+  }
+}
+
+/* Optimisations pour les appareils sans hover */
+@media (hover: none) {
+  .hover-effect {
+    @apply transform-none;
+  }
+}
+
+/* Optimisations pour les utilisateurs préférant moins de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    @apply animate-none transition-none;
+  }
+
+  .image-container img {
+    @apply transition-none;
+  }
+} 

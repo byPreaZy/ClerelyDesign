@@ -3,7 +3,7 @@ export const heroContent = {
   description: "Création de solutions digitales innovantes, combinant design et développement pour des expériences web exceptionnelles.",
   ctaButton: {
     text: "Voir mes projets",
-    href: "#projects",
+    href: "/projects",
     ariaLabel: "Découvrez mes projets réalisés"
   }
 }; 

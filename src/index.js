@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import './assets/styles/index.css';
-import './assets/styles/custom.css';
 import App from './App';
 import 'animate.css';
 import AOS from 'aos';

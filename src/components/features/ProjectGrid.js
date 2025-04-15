@@ -26,6 +26,7 @@ const ProjectGrid = ({ projects = [] }) => {
                 image={project.image}
                 githubLink={project.githubLink}
                 externalLink={project.externalLink}
+                link={project.link}
                 featured={project.featured}
               />
             </motion.div>

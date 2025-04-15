@@ -37,15 +37,15 @@ const Hero = () => {
   const renderColoredText = (text) => {
     const words = text.split(' ');
     return words.map((word, index) => {
-      let colorClass = 'text-gray-900/90 dark:text-white/90';
+      let colorClass = 'text-gray-900 dark:text-white';
       let delay = index * 0.08;
 
       if (word === 'Développeur') {
-        colorClass = 'text-[#2EC4B6]/90';
+        colorClass = 'text-[#2EC4B6] dark:text-[#2EC4B6]';
       } else if (word === 'FullStack') {
-        colorClass = 'text-[#2EC4B6]/80';
+        colorClass = 'text-[#2EC4B6] dark:text-[#2EC4B6]';
       } else if (word === 'Graphiste') {
-        colorClass = 'text-[#FF9F1C]/90';
+        colorClass = 'text-[#FF9F1C] dark:text-[#FF9F1C]';
       }
 
       return (
@@ -67,14 +67,14 @@ const Hero = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background-light dark:bg-background-dark">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* Background gradient */}
       <div
         className={clsx(
-          "absolute inset-0 bg-gradient-to-br",
+          "absolute inset-0 bg-gradient-to-br transition-colors duration-300",
           theme === 'dark' 
-            ? "from-primary/5 via-secondary/5 to-primary/5" 
-            : "from-primary/10 via-secondary/10 to-primary/10"
+            ? "from-primary/10 via-secondary/10 to-primary/10" 
+            : "from-primary/5 via-secondary/5 to-primary/5"
         )}
         style={{
           backgroundSize: '400% 400%',
@@ -89,11 +89,11 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="space-y-6"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-text-light dark:text-text-dark">
+          <h1 className="text-4xl md:text-6xl font-bold">
             {renderColoredText(currentText)}
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
             {heroContent.description}
           </p>
           
@@ -104,7 +104,7 @@ const Hero = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+                className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
                 aria-label={link.label}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -125,7 +125,7 @@ const Hero = () => {
           >
             <a
               href={heroContent.ctaButton.href}
-              className="inline-block px-8 py-3 bg-[#2EC4B6] text-white rounded-lg font-medium hover:bg-[#2EC4B6]/90 transition-colors duration-200"
+              className="inline-block px-8 py-3 bg-[#2EC4B6] text-white rounded-lg font-medium hover:bg-[#2EC4B6]/90 transition-all duration-300"
             >
               {heroContent.ctaButton.text}
             </a>

@@ -15,7 +15,7 @@ const Home = () => {
     >
       <Hero />
       <About />
-      <Projects />
+      <Projects isHomePage={true} displayMode="recent" maxProjects={3} />
       <Contact />
     </motion.div>
   );
